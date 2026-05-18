@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Food Atlas</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#top">Food Atlas</a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#recipes">Recipes</a>
+            <a href="#featured">Featured</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Indian recipes by cuisine, mood, and meal</p>
+                <h1>Explore a richer menu without making a new page for every dish.</h1>
+                <p>Search by name, filter by cuisine, and open any recipe in one clean detail panel.</p>
+                <a class="hero-action" href="#recipes">Browse recipes</a>
+            </div>
+        </section>
+
+        <section class="toolbar" id="recipes" aria-label="Recipe filters">
+            <div>
+                <p class="eyebrow">Menu</p>
+                <h2>Find your next plate</h2>
+            </div>
+            <label class="search-box">
+                <span>Search</span>
+                <input id="searchInput" type="search" placeholder="Try idli, Punjabi, snack...">
+            </label>
+        </section>
+
+        <section class="category-tabs" id="categoryTabs" aria-label="Cuisine categories"></section>
+
+        <section class="content-grid">
+            <div>
+                <p class="result-count" id="resultCount"></p>
+                <section class="recipe-grid" id="recipeGrid" aria-live="polite"></section>
+            </div>
+
+            <aside class="recipe-panel" id="recipePanel">
+                <p class="eyebrow">Recipe preview</p>
+                <h2>Select a dish</h2>
+                <p>Click any recipe card to see ingredients, cooking time, and instructions here.</p>
+            </aside>
+        </section>
+
+        <section class="featured" id="featured">
+            <div>
+                <p class="eyebrow">Featured collection</p>
+                <h2>Popular Indian comfort food</h2>
+                <p>Browse breakfast plates, street snacks, regional classics, and hearty main course recipes from one simple menu.</p>
+            </div>
+            <div class="feature-list">
+                <p><strong>Street food:</strong> Vada Pav, Kathi Roll, and other quick flavour-packed snacks.</p>
+                <p><strong>Breakfast:</strong> Idli Sambhar, Poha, and light everyday recipes.</p>
+                <p><strong>Regional plates:</strong> Punjabi, Bihari, Rajasthani, South Indian, and more.</p>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <img src="chef.jpg" alt="Chef preparing food">
+            <div>
+                <p class="eyebrow">About</p>
+                <h2>A simple kitchen guide for home cooks</h2>
+                <p>Pick a cuisine, open a dish, and follow the ingredients and steps without jumping between separate recipe pages.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Food Atlas</p>
+        <p>Built with static HTML, CSS, and JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
