@@ -24,6 +24,10 @@ body {
     line-height: 1.5;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -61,6 +65,31 @@ input {
 .main-nav a {
     color: var(--muted);
     font-weight: 700;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    color: var(--accent);
+}
+
+.menu-toggle {
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
+    cursor: pointer;
+    display: none;
+    font-weight: 800;
+    padding: 9px 12px;
+}
+
+.sr-only {
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    clip: rect(0, 0, 0, 0);
 }
 
 main {
@@ -127,6 +156,12 @@ h2 {
     padding: 12px 18px;
 }
 
+.hero-action:hover,
+.hero-action:focus-visible {
+    background: #ffd574;
+    transform: translateY(-1px);
+}
+
 .toolbar {
     align-items: end;
     display: flex;
@@ -181,6 +216,17 @@ h2 {
     color: white;
 }
 
+.category-tabs button:hover,
+.category-tabs button:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+}
+
+.category-tabs button.active:hover,
+.category-tabs button.active:focus-visible {
+    color: white;
+}
+
 .content-grid {
     align-items: start;
     display: grid;
@@ -211,7 +257,7 @@ h2 {
 }
 
 .recipe-card:hover,
-.recipe-card:focus {
+.recipe-card:focus-visible {
     box-shadow: var(--shadow);
     outline: 0;
     transform: translateY(-3px);
@@ -300,6 +346,14 @@ footer p {
     margin: 6px 0;
 }
 
+.empty-state {
+    background: var(--panel);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    color: var(--muted);
+    padding: 24px;
+}
+
 .featured,
 .about,
 footer {
@@ -367,8 +421,34 @@ footer {
         flex-direction: column;
     }
 
+    .site-header {
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
     .main-nav {
-        gap: 14px;
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        gap: 4px;
+        padding-top: 8px;
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .main-nav a {
+        border-radius: 6px;
+        padding: 10px 0;
+    }
+
+    .search-box {
+        min-width: 100%;
     }
 
     .hero {
@@ -383,5 +463,14 @@ footer {
     .about img {
         height: auto;
         width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
