@@ -94,6 +94,8 @@ const recipeGrid = document.getElementById("recipeGrid");
 const recipePanel = document.getElementById("recipePanel");
 const resultCount = document.getElementById("resultCount");
 const searchInput = document.getElementById("searchInput");
+const menuToggle = document.querySelector(".menu-toggle");
+const mainNav = document.getElementById("mainNav");
 
 let activeCategory = "All";
 
@@ -123,7 +125,7 @@ function renderRecipes() {
     resultCount.textContent = `${filteredRecipes.length} recipe${filteredRecipes.length === 1 ? "" : "s"} found`;
 
     if (filteredRecipes.length === 0) {
-        recipeGrid.innerHTML = `<p>No recipes found. Try another cuisine or search word.</p>`;
+        recipeGrid.innerHTML = `<p class="empty-state">No recipes found. Try another cuisine or search word.</p>`;
         return;
     }
 
@@ -197,6 +199,18 @@ recipeGrid.addEventListener("keydown", (event) => {
     event.preventDefault();
     const recipe = recipes.find((item) => item.name === card.dataset.recipe);
     renderRecipePanel(recipe);
+});
+
+menuToggle.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+mainNav.addEventListener("click", (event) => {
+    if (event.target.matches("a") && window.innerWidth <= 680) {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+    }
 });
 
 searchInput.addEventListener("input", renderRecipes);
